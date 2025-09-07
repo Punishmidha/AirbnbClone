@@ -12,21 +12,21 @@ let port = process.env.PORT || 6000
 
 // middlewares
 let app = express()
-app.use(express.json()) 
+app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin:"http://airbnb-backend-upx5.onrender.com/", 
-    credentials:true
+    origin: "https://airbnb-xbg5.onrender.com/",
+    credentials: true
 }))
 
 
-app.use("/api/auth", authRouter )
-app.use("/api/user", userRouter )
-app.use("/api/listing",listingRouter )
-app.use("/api/booking",bookingRouter )
+app.use("/api/auth", authRouter)
+app.use("/api/user", userRouter)
+app.use("/api/listing", listingRouter)
+app.use("/api/booking", bookingRouter)
 
 
-app.listen(port,()=>{
+app.listen(port, () => {
     connectDb()
     console.log("server started")
 })

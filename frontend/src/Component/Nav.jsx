@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import logo from '../assets/Navlogo.png'
+// import logo from '../assets/Navlogo.png'
 import { FiSearch } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { CgProfile } from "react-icons/cg";
@@ -58,13 +58,13 @@ function Nav() {
     }
     useEffect(() => {
         handleSearch(input)
-    }, [input])
+    }, [input, handleSearch])
 
     return (
 
         <div className='fixed top-0 bg-[white] z-[20]'>
             <div className='w-[100vw] min-h-[80px]  border-b-[1px] border-[#dcdcdc] px-[20px] flex items-center justify-between md:px-[40px] '>
-                <div><img src={logo} alt="" className='w-[160px] ' /></div>
+                <div><img src="NavLogo.png" alt="" className='w-[160px] ' /></div>
 
                 <div className='w-[35%] relative hidden md:block '>
                     <input type="text" className='w-[100%] px-[30px] py-[10px] border-[2px] border-[#bdbaba] outline-none overflow-auto rounded-[30px] text-[17px]' placeholder='Any Where  |  Any Location  |  Any City ' onChange={(e) => setInput(e.target.value)} value={input} />
