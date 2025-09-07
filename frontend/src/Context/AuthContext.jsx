@@ -1,7 +1,7 @@
 import React, { createContext, useState } from 'react'
 export const authDataContext = createContext()
 function AuthContext({ children }) {
-  const serverUrl = "https://airbnb-backend-upx5.onrender.com"
+  const serverUrl = import.meta.env.VITE_BASE_API_URL;
 
   let [loading, setLoading] = useState(false)
 
