@@ -41,10 +41,10 @@ function Card({ title, landMark, image1, image2, image3, rent, city, id, ratings
             </div>
             <div className=' w-[100%] h-[33%] py-[20px] flex flex-col gap-[2px]'>
                 <div className='flex items-center justify-between text-[18px] '><span className='w-[80%] text-ellipsis overflow-hidden font-semibold text-nowrap text-[#4a3434]'>In {landMark.toUpperCase()},{city.toUpperCase()}</span>
-                    <span className='flex items-center justify-center gap-[5px]'><FaStar className='text-[#eb6262]' />{ratings}</span>
+                    <span className='flex items-center justify-center gap-[5px]'><FaStar className='text-[#94948c]' />{ratings}</span>
                 </div>
                 <span className='text-[15px] w-[80%] text-ellipsis overflow-hidden text-nowrap'>{title.toUpperCase()} </span>
-                <span className='text-[16px] font-semibold text-[#986b6b]'>₹{rent}/day</span>
+                <span className='text-[16px] font-semibold text-[#25409C]'>₹{rent}/day</span>
             </div>
 
         </div>

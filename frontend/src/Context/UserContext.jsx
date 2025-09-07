@@ -1,40 +1,42 @@
-import React, { createContext, useEffect, useState } from 'react'
-import { useContext } from 'react'
-import { authDataContext } from './AuthContext'
-import axios from 'axios'
-export const userDataContext = createContext()
-function UserContext({children}) {
-     let {serverUrl} = useContext(authDataContext)
-     let [userData,setUserData] = useState(null)
-     
+import React, { createContext, useEffect, useState, useContext } from 'react';
+import { authDataContext } from './AuthContext';
+import axios from 'axios';
 
-     const getCurrentUser = async () => {
+export const userDataContext = createContext();
 
-        try {
-            let result = await axios.get(serverUrl + "/api/user/currentuser",{withCredentials:true})
-            setUserData(result.data)
-        } catch (error) {
-            setUserData(null)
-            console.log(error)
-            
-        }
-        
-     }
-        useEffect(()=>{
-            getCurrentUser()
-        },[])
+function UserContext({ children }) {
+  const { serverUrl } = useContext(authDataContext);
+  const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-    let value={
-        userData,
-        setUserData,getCurrentUser
+  const getCurrentUser = async () => {
+    try {
+      const result = await axios.get(serverUrl + "/api/user/currentuser", { withCredentials: true });
+      setUserData(result.data);
+    } catch (error) {
+      setUserData(null);
+      console.log(error);
+    } finally {
+      setLoading(false);
     }
+  };
+
+  useEffect(() => {
+    getCurrentUser();
+  }, []);
+
+  const value = {
+    userData,
+    setUserData,
+    getCurrentUser,
+    loading,
+  };
+
   return (
-    <div>
-      <userDataContext.Provider value={value}>
-        {children}
-      </userDataContext.Provider>
-    </div>
-  )
+    <userDataContext.Provider value={value}>
+      {children}
+    </userDataContext.Provider>
+  );
 }
 
-export default UserContext
+export default UserContext;

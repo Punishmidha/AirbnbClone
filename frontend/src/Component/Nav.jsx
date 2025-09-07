@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import logo from '../assets/logo.png'
+import logo from '../assets/Navlogo.png'
 import { FiSearch } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { CgProfile } from "react-icons/cg";
@@ -64,11 +64,11 @@ function Nav() {
 
         <div className='fixed top-0 bg-[white] z-[20]'>
             <div className='w-[100vw] min-h-[80px]  border-b-[1px] border-[#dcdcdc] px-[20px] flex items-center justify-between md:px-[40px] '>
-                <div><img src={logo} alt="" className='w-[130px]' /></div>
+                <div><img src={logo} alt="" className='w-[160px] ' /></div>
 
                 <div className='w-[35%] relative hidden md:block '>
                     <input type="text" className='w-[100%] px-[30px] py-[10px] border-[2px] border-[#bdbaba] outline-none overflow-auto rounded-[30px] text-[17px]' placeholder='Any Where  |  Any Location  |  Any City ' onChange={(e) => setInput(e.target.value)} value={input} />
-                    <button className='absolute p-[10px] rounded-[50px] bg-[red] right-[3%] top-[5px]'><FiSearch className='w-[20px] h-[20px] text-[white]' /></button>
+                    <button className='absolute p-[10px] rounded-[50px] bg-[#1b1919] right-[3%] top-[5px]'><FiSearch className='w-[20px] h-[20px] text-[white]' /></button>
                 </div>
                 <div className='flex items-center justify-center    gap-[10px] relative'>
                     <span className='text-[18px] cursor-pointer rounded-[50px] hover:bg-[#ded9d9] px-[8px] py-[5px] hidden md:block' onClick={() => navigate("/listingpage1")}>List your home</span>
