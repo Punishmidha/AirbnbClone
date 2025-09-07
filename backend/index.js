@@ -19,7 +19,6 @@ app.use(cors({
     credentials: true
 }))
 
-
 app.use("/api/auth", authRouter)
 app.use("/api/user", userRouter)
 app.use("/api/listing", listingRouter)
